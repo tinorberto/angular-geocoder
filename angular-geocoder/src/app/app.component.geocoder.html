@@ -1,0 +1,8 @@
+<h1>
+  Geocorder
+</h1>
+<form>
+<label>Endereço: </label><input type="text"  name="endereco" [(ngModel)]="endereco"  (keyup)="enviar()"> {{msgEndereco}}<br>
+<label>CEP </label> <input type="text"  name="cep" [(ngModel)]="cep"  (keyup)="enviar()" > {{msgCep}}<br> <br>
+<label>Resposta: </label> <textarea type="text"  name="resposta" [(ngModel)]="resposta"></textarea><br>
+</form>

@@ -32,4 +32,4 @@ To get more help on the `angular-cli` use `ng help` or go check out the [Angular
 
 ## Projeto para utilização de um AngularGeocoder
 ##  Três campos para logadouro, cep 
-## Exibir o resultado em m text area
+## Exibir o resultado em text area

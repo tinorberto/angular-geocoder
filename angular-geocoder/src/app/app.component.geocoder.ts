@@ -16,20 +16,39 @@ export class GeocoderComponet implements OnInit {
   endereco = ''
   resposta = '...'
   msgCep ='';
-
-  constructor(private geocoderService : GeocoderService){
-      
+  enderecos : any
+  respostaServico =''    
+  
+  
+  constructor(private geocoderService : GeocoderService){  
   }
 
+  /*
+  Evento criado quando a aplicao e incializada
+  */
   ngOnInit() {
     console.log('Eu estou aqui');
   }
 
-    enviar(){
-      
-     console.log(this.geocoderService.getGeocoder(this.endereco , this.cep).subscribe(val => console.log(val)) ) 
-     this.geocoderService.getGeocoder(this.endereco , this.cep).subscribe(val =>  this.resposta +=val.endereco)
-
-      console.log(this.resposta);
+  /*
+  Enviar os dados 
+  */
+  enviar(){    
+     //console.log(this.geocoderService.getGeocoder(this.endereco , this.cep).subscribe(val => console.log(val)) ) 
+    this.geocoderService.getGeocoder(this.endereco , this.cep).subscribe(val =>  
+    {
+      console.log(val)
+      if(val.endereco instanceof Array ){
+        this.enderecos = val.endereco
+      }else{
+      this.respostaServico = 'Nenhum endereço encontrado'
+    }
+    })
+    /*
+    this.geocoderService.getGeocoder(this.endereco , this.cep).subscribe(
+    function (val){
+        this.enderecos = val.endereco;
+        console.log(val.endereco[0])
+    })*/
   }
 }

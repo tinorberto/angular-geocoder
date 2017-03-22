@@ -4,6 +4,15 @@
 <form>
 <label>Endereço: </label><input type="text"  name="endereco" [(ngModel)]="endereco"> {{msgEndereco}}<br>
 <label>CEP </label> <input type="text"  name="cep" [(ngModel)]="cep" > {{msgCep}}<br> <br>
-<label>Resposta: </label> <textarea type="text" [(ngModel)]="resposta"  name="resposta" [(ngModel)]="resposta"></textarea><br>
 <button (click)="enviar()">Enviar</button> 
 </form>
+<p>{{respostaServico}}</p>
+<br>
+{{enderecos | json}}
+Resposta : <br>
+<ul *ngFor="let end of enderecos">
+  <li>Bairro popular: {{end.bairropopular}}</li>
+  <li>CEP: {{end.cep}}</li>
+  <li>Logradouro: {{end.nomelogradouro}}</li>
+  <li>WKT: {{end.wkt}}</li>
+</ul>
